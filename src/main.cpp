@@ -8,6 +8,7 @@ struct division
 {
     byte pin;
     byte division;
+    bool random;
 };
 
 
@@ -16,9 +17,10 @@ bool triggered = false;
 long previous;
 
 division divi[3];
-void fillStruct(byte index, byte pin, byte division) {
+void fillStruct(byte index, byte pin, byte division, bool random=false) {
     divi[index].pin = pin;
     divi[index].division = division;
+    divi[index].random = random;
     pinMode(divi[index].pin, OUTPUT);
 }
 
@@ -30,6 +32,8 @@ void clockHandler() {
         } else {
             digitalWrite(divi[i].pin, LOW);
         }
+        if(divi[i].random)
+            divi[i].division = random(0,8);
     }
     if(activeClock == 8)
         activeClock = 0;
@@ -40,7 +44,7 @@ void clockHandler() {
 void setup() {
     fillStruct(0, 2, 1);
     fillStruct(1, 3, 4);
-    fillStruct(2, 4, 8);
+    fillStruct(2, 4, 8, true);
     pinMode(CLOCKIN, INPUT);
 }
 
@@ -50,7 +54,7 @@ void loop() {
         clockHandler();
         triggered = true;
         previous = millis();
-    } 
+    }
     if (millis() - previous >= 50) {
         //lower all pins
         for(byte i=0; i < 3; i++) {
