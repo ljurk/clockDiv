@@ -35,30 +35,6 @@ F 3 " ~" H 5725 2550 50  0001 C CNN
 	1    7000 3100
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	6600 3100 5750 3100
-Wire Wire Line
-	6100 3000 6100 2900
-Wire Wire Line
-	6100 2900 5750 2900
-Wire Wire Line
-	6600 2900 6250 2900
-Wire Wire Line
-	6250 2900 6250 3000
-Wire Wire Line
-	5750 3000 6100 3000
-Connection ~ 6250 3000
-Wire Wire Line
-	6250 3000 6600 3000
-Connection ~ 6100 3000
-Wire Wire Line
-	6100 3000 6250 3000
-NoConn ~ 6250 3000
-NoConn ~ 6100 3000
-Wire Wire Line
-	6600 3200 6600 4100
-Wire Wire Line
-	6600 4100 5750 4100
 $Comp
 L power:GND #PWR?
 U 1 1 5EFF1BEB
@@ -103,4 +79,20 @@ F 3 "" H 7100 2600 50  0001 C CNN
 	1    7100 2600
 	1    0    0    -1  
 $EndComp
+Text GLabel 5750 3100 2    50   Input ~ 0
+SCK
+Text GLabel 6600 3100 0    50   Input ~ 0
+SCK
+Text GLabel 5750 3000 2    50   Input ~ 0
+MISO
+Text GLabel 6600 2900 0    50   Input ~ 0
+MISO
+Text GLabel 5750 2900 2    50   Input ~ 0
+MOSI
+Text GLabel 6600 3000 0    50   Input ~ 0
+MOSI
+Text GLabel 5750 4100 2    50   Input ~ 0
+RST
+Text GLabel 6600 3200 0    50   Input ~ 0
+RST
 $EndSCHEMATC
