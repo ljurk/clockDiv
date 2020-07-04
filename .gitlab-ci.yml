@@ -1,0 +1,13 @@
+---
+stages:
+    - build
+
+svg:
+    image: productize/kicad-automation-scripts
+    stage: build
+    script:
+        - python -m kicad-automation.eeschema.schematic export kicad/clockDiv.sch build
+        - ls build
+    artifacts:
+        paths:
+            - build/clockDiv.svg
